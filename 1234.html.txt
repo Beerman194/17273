@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+ <link rel="stylesheet" type="text/css" href="123.css" />
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script>
+ <title>POWERLIFTING</title>
+  
+</head>
+<body>
+ <header class="header"></header> 
+ <main> 
+ <h1 class="headd" style="text-align: center;">POWERLIFTING</h1> 
+ <img src="https://grad45.ru/content/images/newsi1/source/%D0%BF%D0%B0%D1%83%D1%8D%D1%80%D0%BB%D0%B8%D1%84%D1%82%D0%B8%D0%BD%D0%B3-01.jpg_6548_1577121589.jpg" class="image1"/> 
+ <div class="text1_wrap">
+ <div class="wrap">
+ <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaH-SDbLTHETHPVZNLQnjcHiDjttoImmvJCg&s" alt="" class="image" id="tyaga"> 
+ <p class="text1">Powerlifting - силовое троеборье — это силовой вид спорта,  
+ суть которого заключается в преодолении сопротивления предельно тяжёлого для спортсмена веса.  
+ В качестве соревновательных дисциплин в пауэрлифтинг входят три упражнения: приседания со штангой на спине (точнее на верхней части лопаток), 
+ жим штанги лёжа на горизонтальной скамье и становая тяга штанги — которые в сумме определяют квалификацию спортсмена.</p>
+</div>
+ </div> 
+ <h2>Популярные пауэрлифтеры</h2> 
+ <ol class="spisok1"> 
+ <li style="color: rgb(255, 0, 0);">Хесус Оливарес</li> 
+ <li style="color: rgb(255, 0, 0);">Алексей Бычков</li> 
+ <li style="color: rgb(255, 0, 0);">Эмиль Норлинг</li> 
+</ol> 
+<h3>Полезен ли пауэрлифтинг для жизни?</h3> 
+<p>На сегодняшний день широкую популярность среди молодежи приобретает спорт.
+ Ведь именно он имеет наибольшее влияние на здоровье и является возможностью держать себя в хорошей физической форме. 
+ Одним из таких способов есть силовые тренировки, ведь они прекрасно влияют на сердечно-мышечный аппарат, увеличивают силу и выносливость мышц.</p> 
+  <h1 id="main-title">Добро пожаловать на сайт</h1>
+ 
+ <p id="paragraph">Этот параграф изменяется при клике.</p>
+ 
+ <button id="change-content">Изменить контент</button>
+ 
+ <button id="toggle-paragraph">Показать/Скрыть параграф</button>
+
+ <button id="highlight">Выделить заголовок</button>
+ 
+ <div id="animate-box" class="animated-box"></div>
+ <button id="animate">Анимировать коробку</button>
+
+ <a class="ssylki" href="https://scienceforum.ru/2017/article/2017038858">Влияние пауэрлифтинга на здоровье </a> 
+ <table class="table1"> 
+ <tr style="font-family: sans-serif; font-size: 20px; font-weight: 700"> 
+ <th class="table1_head" id="price" colspan="2" style="padding: 10px">Пауэрлифтеры</th> 
+ </tr> 
+ <tr style="font-family: sans-serif; font-size: 16px; font-weight: 600"> 
+ <td class="col1" style="padding: 10px">Хесус Оливарес</td> 
+ <td class="col2" style="padding: 10px">1152.5(кг.)</td> 
+ </tr> 
+ <tr style="font-family: sans-serif; font-size: 16px; font-weight: 600"> 
+ <td class="col1" style="padding: 10px">Кирилл Сарычев</td> 
+<td class="col2" style="padding: 10px">1082.5</td> 
+ </tr> 
+ <tr style="font-family: sans-serif; font-size: 16px; font-weight: 600"> 
+ <td class="col1" style="padding: 10px">Андрей Маланичев</td> 
+<td class="col2" style="padding: 10px">1140</td> 
+</tr> 
+ </table> 
+ </main> 
+ <div id="app">
+     <!-- Таблица спортсменов -->
+     <table v-if="athletes.length > 0" border="1" cellpadding="10">
+     <tr>
+     <th>Имя</th>
+     <th>Результат (кг)</th>
+     </tr>
+     <tr v-for="athlete in athletes" :key="athlete.name">
+     <td>{{ athlete.name }}</td>
+     <td>{{ athlete.weight }}</td>
+     </tr>
+    </table>
+    
+     <!-- Показ сообщения, если нет спортсменов -->
+    <p v-if="athletes.length === 0">Нет данных о спортсменах.</p>
+    
+     <!-- Скрытие информации -->
+     <button @click="toggleInfo">{{ showInfo ? 'Скрыть' : 'Показать' }} информацию</button>
+     <p v-show="showInfo">
+     Powerlifting — это спорт, который развивает силу и выносливость!
+     </p>
+    
+     <!-- Добавление новых данных -->
+     <input type="text" v-model="newAthleteName" placeholder="Имя спортсмена" />
+     <input type="number" v-model.number="newAthleteWeight" placeholder="Вес (кг)" />
+     <button @click="addAthlete">Добавить спортсмена</button>
+    
+     <!-- Кнопка для сортировки -->
+     <button @click="sortAthletes">Сортировать по весу</button>
+    </div>
+    
+   
+ <footer class="footer"></footer> 
+ <script src="123.js"></script>
+ 
+
+</body> 
+</html>
+
+
+
+  
